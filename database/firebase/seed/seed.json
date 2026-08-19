@@ -1,0 +1,261 @@
+{
+  "users": [
+    {
+      "uid": "user-primary-akash",
+      "email": "chef@mealshare.com",
+      "displayName": "Chef Akash",
+      "role": "user",
+      "dietPreference": "High Protein",
+      "dailyCalorieTarget": 2200,
+      "createdAt": "2026-01-15T00:00:00.000Z"
+    },
+    {
+      "uid": "admin-primary",
+      "email": "akkurthiakash2@gmail.com",
+      "displayName": "System Admin",
+      "role": "admin",
+      "dietPreference": "Balanced",
+      "dailyCalorieTarget": 2000,
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "uid": "user-demo-keto",
+      "email": "keto@mealshare.com",
+      "displayName": "Sarah Jenkins",
+      "role": "user",
+      "dietPreference": "Keto",
+      "dailyCalorieTarget": 1800,
+      "createdAt": "2026-02-01T00:00:00.000Z"
+    }
+  ],
+  "pantry": [
+    {
+      "id": "p1",
+      "userId": "user-primary-akash",
+      "catalogId": "cat-milk",
+      "name": "Fresh Whole Milk",
+      "category": "Dairy",
+      "quantity": 1,
+      "unit": "Liter",
+      "expiryDate": "2026-08-22",
+      "imageUrl": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=600&q=80",
+      "isLeftover": false,
+      "status": "fresh"
+    },
+    {
+      "id": "p2",
+      "userId": "user-primary-akash",
+      "catalogId": "cat-spinach",
+      "name": "Fresh Baby Spinach",
+      "category": "Vegetables",
+      "quantity": 250,
+      "unit": "g",
+      "expiryDate": "2026-08-19",
+      "imageUrl": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600&q=80",
+      "isLeftover": false,
+      "status": "use_soon"
+    },
+    {
+      "id": "p3",
+      "userId": "user-primary-akash",
+      "catalogId": "cat-eggs",
+      "name": "Organic Large Eggs",
+      "category": "Dairy",
+      "quantity": 12,
+      "unit": "pcs",
+      "expiryDate": "2026-08-28",
+      "imageUrl": "https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?auto=format&fit=crop&w=600&q=80",
+      "isLeftover": false,
+      "status": "fresh"
+    },
+    {
+      "id": "p4",
+      "userId": "user-primary-akash",
+      "catalogId": "cat-rice",
+      "name": "Cooked Basmati Rice",
+      "category": "Leftovers",
+      "quantity": 1,
+      "unit": "bowl",
+      "expiryDate": "2026-08-19",
+      "imageUrl": "https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?auto=format&fit=crop&w=600&q=80",
+      "isLeftover": true,
+      "status": "use_soon"
+    },
+    {
+      "id": "p5",
+      "userId": "user-primary-akash",
+      "catalogId": "cat-chicken",
+      "name": "Boneless Chicken Breast",
+      "category": "Chicken",
+      "quantity": 500,
+      "unit": "g",
+      "expiryDate": "2026-08-21",
+      "imageUrl": "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=600&q=80",
+      "isLeftover": false,
+      "status": "fresh"
+    },
+    {
+      "id": "p6",
+      "userId": "user-primary-akash",
+      "catalogId": "cat-tomatoes",
+      "name": "Ripe Vine Tomatoes",
+      "category": "Vegetables",
+      "quantity": 4,
+      "unit": "pcs",
+      "expiryDate": "2026-08-24",
+      "imageUrl": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80",
+      "isLeftover": false,
+      "status": "fresh"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "r1",
+      "title": "Golden Leftover Egg Fried Rice",
+      "name": "Golden Leftover Egg Fried Rice",
+      "description": "Quick 10-minute fried rice utilizing leftover Basmati rice, fresh eggs, and crisp baby spinach!",
+      "category": "Rice",
+      "mealType": "Lunch",
+      "imageUrl": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 10,
+      "calories": 420,
+      "proteinGrams": 16,
+      "carbsGrams": 58,
+      "fatGrams": 12,
+      "servings": 2,
+      "difficulty": "Easy",
+      "ingredients": [
+        { "name": "Cooked Basmati Rice", "quantity": 1, "unit": "bowl" },
+        { "name": "Organic Large Eggs", "quantity": 2, "unit": "pcs" },
+        { "name": "Soy Sauce", "quantity": 1, "unit": "tbsp" },
+        { "name": "Fresh Baby Spinach", "quantity": 50, "unit": "g" }
+      ],
+      "instructions": [
+        "Heat sesame oil in a large wok over medium-high heat.",
+        "Add spinach leaves and stir fry for 1 minute until wilted.",
+        "Push spinach to the side, crack in eggs, and scramble gently.",
+        "Add chilled leftover rice and soy sauce, tossing continuously for 3 minutes until steaming hot."
+      ],
+      "tags": ["Chef Curated", "Leftovers", "High Protein", "Quick & Easy"],
+      "usesLeftovers": true
+    },
+    {
+      "id": "r2",
+      "title": "High-Protein Garlic Chicken Breast",
+      "name": "High-Protein Garlic Chicken Breast",
+      "description": "Pan-seared tender chicken breast infused with garlic butter and fresh garden herbs.",
+      "category": "Chicken",
+      "mealType": "Dinner",
+      "imageUrl": "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=600&q=80",
+      "prepTimeMinutes": 10,
+      "cookTimeMinutes": 15,
+      "calories": 480,
+      "proteinGrams": 38,
+      "carbsGrams": 8,
+      "fatGrams": 18,
+      "servings": 2,
+      "difficulty": "Easy",
+      "ingredients": [
+        { "name": "Boneless Chicken Breast", "quantity": 400, "unit": "g" },
+        { "name": "Garlic Cloves", "quantity": 3, "unit": "cloves" },
+        { "name": "Olive Oil", "quantity": 1, "unit": "tbsp" },
+        { "name": "Black Pepper", "quantity": 1, "unit": "tsp" }
+      ],
+      "instructions": [
+        "Pat chicken breasts dry and season evenly with salt and black pepper.",
+        "Heat olive oil in a skillet over medium heat.",
+        "Add chicken breasts and sear for 6-7 minutes on each side until golden and cooked through.",
+        "Baste with minced garlic and butter during the last 2 minutes."
+      ],
+      "tags": ["High Protein", "Low Carb", "Dinner Classic"],
+      "usesLeftovers": false
+    },
+    {
+      "id": "r3",
+      "title": "Fluffy Spinach & Egg Omelette",
+      "name": "Fluffy Spinach & Egg Omelette",
+      "description": "Nutrient-packed breakfast omelette loaded with fresh baby spinach and cracked pepper.",
+      "category": "Breakfast & Eggs",
+      "mealType": "Breakfast",
+      "imageUrl": "https://images.unsplash.com/photo-1590412200988-a436970781fa?auto=format&fit=crop&w=600&q=80",
+      "prepTimeMinutes": 5,
+      "cookTimeMinutes": 5,
+      "calories": 340,
+      "proteinGrams": 22,
+      "carbsGrams": 4,
+      "fatGrams": 24,
+      "servings": 1,
+      "difficulty": "Easy",
+      "ingredients": [
+        { "name": "Organic Large Eggs", "quantity": 3, "unit": "pcs" },
+        { "name": "Fresh Baby Spinach", "quantity": 50, "unit": "g" },
+        { "name": "Butter", "quantity": 1, "unit": "tbsp" }
+      ],
+      "instructions": [
+        "Whisk eggs thoroughly with salt and black pepper.",
+        "Melt butter in a non-stick pan over medium heat.",
+        "Pour whisked eggs into the pan and let set for 1 minute.",
+        "Add spinach on one half, fold omelette over, and serve hot."
+      ],
+      "tags": ["Breakfast", "Keto", "Quick"],
+      "usesLeftovers": false
+    }
+  ],
+  "mealPlans": [
+    {
+      "id": "plan-1",
+      "userId": "user-primary-akash",
+      "day": "Monday",
+      "mealType": "Breakfast",
+      "recipeId": "r3",
+      "recipeTitle": "Fluffy Spinach & Egg Omelette",
+      "imageUrl": "https://images.unsplash.com/photo-1590412200988-a436970781fa?auto=format&fit=crop&w=600&q=80",
+      "calories": 340,
+      "completed": true,
+      "completedAt": "2026-08-19T08:00:00.000Z"
+    },
+    {
+      "id": "plan-2",
+      "userId": "user-primary-akash",
+      "day": "Monday",
+      "mealType": "Lunch",
+      "recipeId": "r1",
+      "recipeTitle": "Golden Leftover Egg Fried Rice",
+      "imageUrl": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80",
+      "calories": 420,
+      "completed": false,
+      "completedAt": null
+    },
+    {
+      "id": "plan-3",
+      "userId": "user-primary-akash",
+      "day": "Monday",
+      "mealType": "Dinner",
+      "recipeId": "r2",
+      "recipeTitle": "High-Protein Garlic Chicken Breast",
+      "imageUrl": "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=600&q=80",
+      "calories": 480,
+      "completed": false,
+      "completedAt": null
+    }
+  ],
+  "mealHistory": [
+    {
+      "id": "history-1",
+      "userId": "user-primary-akash",
+      "planId": "plan-1",
+      "recipeId": "r3",
+      "recipeTitle": "Fluffy Spinach & Egg Omelette",
+      "imageUrl": "https://images.unsplash.com/photo-1590412200988-a436970781fa?auto=format&fit=crop&w=600&q=80",
+      "mealType": "Breakfast",
+      "completedAt": "2026-08-19T08:00:00.000Z",
+      "dateStr": "2026-08-19",
+      "dayName": "Monday",
+      "calories": 340,
+      "proteinGrams": 22,
+      "carbsGrams": 4,
+      "fatGrams": 24
+    }
+  ]
+}
