@@ -1,0 +1,86 @@
+{
+  "collections": {
+    "users": {
+      "fields": {
+        "uid": "string (Primary Key)",
+        "email": "string",
+        "displayName": "string",
+        "role": "string ('user' | 'admin')",
+        "dietPreference": "string",
+        "dailyCalorieTarget": "number",
+        "createdAt": "timestamp (ISO string)"
+      }
+    },
+    "pantry": {
+      "fields": {
+        "id": "string (Primary Key)",
+        "userId": "string (Foreign Key -> users.uid)",
+        "catalogId": "string",
+        "name": "string",
+        "category": "string",
+        "quantity": "number",
+        "unit": "string",
+        "expiryDate": "string (YYYY-MM-DD)",
+        "imageUrl": "string (URL)",
+        "isLeftover": "boolean",
+        "status": "string ('fresh' | 'use_soon' | 'expired')",
+        "createdAt": "timestamp"
+      }
+    },
+    "recipes": {
+      "fields": {
+        "id": "string (Primary Key)",
+        "title": "string",
+        "name": "string",
+        "description": "string",
+        "category": "string",
+        "mealType": "string ('Breakfast' | 'Lunch' | 'Dinner' | 'Snack')",
+        "imageUrl": "string (URL)",
+        "prepTimeMinutes": "number",
+        "cookTimeMinutes": "number",
+        "calories": "number",
+        "proteinGrams": "number",
+        "carbsGrams": "number",
+        "fatGrams": "number",
+        "servings": "number",
+        "difficulty": "string ('Easy' | 'Medium' | 'Hard')",
+        "ingredients": "array<object { name, quantity, unit }>",
+        "instructions": "array<string>",
+        "tags": "array<string>",
+        "usesLeftovers": "boolean"
+      }
+    },
+    "mealPlans": {
+      "fields": {
+        "id": "string (Primary Key)",
+        "userId": "string (Foreign Key -> users.uid)",
+        "day": "string ('Monday' ... 'Sunday')",
+        "mealType": "string ('Breakfast' | 'Lunch' | 'Dinner' | 'Snack')",
+        "recipeId": "string (Foreign Key -> recipes.id)",
+        "recipeTitle": "string",
+        "imageUrl": "string (URL)",
+        "calories": "number",
+        "completed": "boolean",
+        "completedAt": "timestamp | null"
+      }
+    },
+    "mealHistory": {
+      "fields": {
+        "id": "string (Primary Key)",
+        "userId": "string (Foreign Key -> users.uid)",
+        "planId": "string (Foreign Key -> mealPlans.id)",
+        "recipeId": "string (Foreign Key -> recipes.id)",
+        "recipeTitle": "string",
+        "imageUrl": "string (URL)",
+        "mealType": "string",
+        "completedAt": "timestamp (ISO string)",
+        "dateStr": "string (YYYY-MM-DD)",
+        "dayName": "string",
+        "calories": "number",
+        "proteinGrams": "number",
+        "carbsGrams": "number",
+        "fatGrams": "number"
+      }
+    }
+  }
+}
