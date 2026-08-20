@@ -87,8 +87,7 @@ export default function Sidebar() {
       {/* Sidebar Container */}
       <aside className={`
         fixed top-0 bottom-0 left-0 w-72 bg-white/95 dark:bg-[#0c1322]/95 backdrop-blur-xl border-r border-slate-200/80 dark:border-slate-800 p-6 text-slate-900 dark:text-slate-100 shrink-0 transition-transform duration-300 font-sans z-50 shadow-xl overflow-y-auto
-        lg:translate-x-0 lg:sticky lg:h-screen
-        ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+        ${mobileOpen ? 'translate-x-0' : '-translate-x-full'} lg:sticky lg:h-screen lg:translate-x-0
       `}>
         
         {/* Logo */}
