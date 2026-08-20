@@ -23,7 +23,8 @@ export default function AdminSettingsPage() {
     notifications: 5
   });
 
-  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+  const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL 
+    || (process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL.replace(/\/api\/?$/, '') : 'http://localhost:5000');
 
   const testDatabaseConnection = async () => {
     setDbStatus('testing');

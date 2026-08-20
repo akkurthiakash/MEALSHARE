@@ -207,12 +207,12 @@ function RecipesContent() {
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 border-t border-[#E2D9D0] dark:border-slate-800 pt-3">
+        <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 no-scrollbar border-t border-[#E2D9D0] dark:border-slate-800 pt-3">
           {FILTER_TABS.map(tab => (
             <button
               key={tab}
               onClick={() => { setActiveTab(tab); setCurrentPage(1); }}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold uppercase whitespace-nowrap transition-all ${
+              className={`px-3 py-1.5 rounded-full text-[11px] font-bold uppercase whitespace-nowrap shrink-0 transition-all ${
                 activeTab === tab
                   ? 'bg-[#059669] text-white shadow-sm font-black'
                   : 'bg-[#F8EFE7] dark:bg-slate-800 text-[#475569] hover:bg-[#E2D9D0]'

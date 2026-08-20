@@ -27,12 +27,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const isAdminLoginPage = pathname === '/admin/login';
+
   useEffect(() => {
+    if (isAdminLoginPage) return;
     if (!loading && (!user || user.role !== 'admin')) {
-      toast.error('Administrator access required. Redirecting to login.');
-      router.push('/login');
+      toast.error('Administrator access required. Redirecting to admin login.');
+      router.push('/admin/login');
     }
-  }, [user, loading, router]);
+  }, [user, loading, router, isAdminLoginPage]);
+
+  if (isAdminLoginPage) {
+    return <>{children}</>;
+  }
 
   if (loading) {
     return (
@@ -54,8 +61,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <p className="text-sm font-bold text-slate-600 dark:text-slate-400">
             Administrator privileges required for account: <strong className="text-slate-900 dark:text-white">{user?.email || 'Guest'}</strong>
           </p>
-          <Link href="/login" className="inline-block px-6 py-2.5 bg-emerald-600 text-white font-bold text-xs rounded-2xl">
-            Return to Login
+          <Link href="/admin/login" className="inline-block px-6 py-2.5 bg-emerald-600 text-white font-bold text-xs rounded-2xl">
+            Go to Admin Login
           </Link>
         </div>
       </div>

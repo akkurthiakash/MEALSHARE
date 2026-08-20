@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   description: 'Track ingredients, recipe hub, weekly planner, and sustainability score.',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -27,7 +34,7 @@ export default function RootLayout({
             <NotificationProvider>
               <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
               <Sidebar />
-              <div className="flex-1 flex flex-col min-w-0 min-h-screen overflow-x-hidden relative z-10">
+              <div className="flex-1 flex flex-col min-w-0 min-h-screen overflow-x-hidden relative z-10 pt-14 lg:pt-0">
                 <TopHeader />
                 <main className="flex-1 p-6 sm:p-10 bg-transparent transition-colors duration-200">
                   {children}

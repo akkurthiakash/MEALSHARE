@@ -110,7 +110,7 @@ export default function DashboardPage() {
               <span>Smart Pantry & Culinary Intelligence</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0F172A] dark:text-white tracking-tight leading-tight uppercase font-serif">
+            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-[#0F172A] dark:text-white tracking-tight leading-tight uppercase font-serif">
               Personalized <br />
               <span className="text-[#059669] dark:text-emerald-400">Meal Planning</span>
             </h1>

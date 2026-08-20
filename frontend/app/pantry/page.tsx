@@ -214,25 +214,25 @@ function PantryContent() {
 
       {/* Search & 20 Category Filter Bar */}
       <div className="bg-[#FFFDF9] dark:bg-slate-900 border border-[#E2D9D0] dark:border-slate-800 p-4 sm:p-6 rounded-3xl shadow-sm space-y-4">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-[#475569] absolute left-4 top-3.5" />
             <input
               type="text"
-              placeholder="Search pantry by item name, category, or alias (e.g. Mutton, Tamatar, Chicken, Pasta)..."
+              placeholder="Search pantry (e.g. Mutton, Tomato)..."
               value={searchQuery}
               onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
-              className="w-full pl-11 pr-4 py-2.5 rounded-full bg-[#FDF7F2] dark:bg-slate-800 border border-[#E2D9D0] text-sm font-bold text-slate-900 dark:text-white"
+              className="w-full pl-11 pr-4 py-2.5 rounded-full bg-[#FDF7F2] dark:bg-slate-800 border border-[#E2D9D0] text-xs font-bold text-slate-900 dark:text-white"
             />
           </div>
 
-          <div className="flex items-center space-x-2 shrink-0">
-            <span className="text-xs font-bold uppercase text-[#475569]">Status:</span>
+          <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 no-scrollbar shrink-0">
+            <span className="text-[11px] font-bold uppercase text-[#475569] shrink-0 mr-1">Status:</span>
             {(['all', 'fresh', 'use_soon', 'expired'] as const).map(st => (
               <button
                 key={st}
                 onClick={() => { setStatusFilter(st); setCurrentPage(1); }}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold uppercase transition-all ${
+                className={`px-3 py-1.5 rounded-full text-[11px] font-bold uppercase whitespace-nowrap shrink-0 transition-all ${
                   statusFilter === st
                     ? 'bg-[#059669] text-white shadow-sm font-black'
                     : 'bg-[#F8EFE7] dark:bg-slate-800 text-[#475569] hover:bg-[#E2D9D0]'
@@ -245,12 +245,12 @@ function PantryContent() {
         </div>
 
         {/* 20 Exact Category Filter Bar */}
-        <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 border-t border-[#E2D9D0] dark:border-slate-800 pt-3">
+        <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 no-scrollbar border-t border-[#E2D9D0] dark:border-slate-800 pt-3">
           {['All', ...MASTER_CATEGORIES].map(cat => (
             <button
               key={cat}
               onClick={() => { setActiveCategory(cat); setCurrentPage(1); }}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold uppercase whitespace-nowrap transition-all ${
+              className={`px-3 py-1.5 rounded-full text-[11px] font-bold uppercase whitespace-nowrap shrink-0 transition-all ${
                 activeCategory === cat
                   ? 'bg-[#059669] text-white shadow-sm font-black'
                   : 'bg-[#F8EFE7] dark:bg-slate-800 text-[#475569] hover:bg-[#E2D9D0]'

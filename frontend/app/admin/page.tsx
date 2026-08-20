@@ -32,7 +32,8 @@ interface SystemHealthData {
   imageData: { status: string; totalImages: number; brokenUrls: number };
 }
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL 
+  || (process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL.replace(/\/api\/?$/, '') : 'http://localhost:5000');
 
 export default function AdminDashboardOverviewPage() {
   const [catalogCount, setCatalogCount] = useState(0);

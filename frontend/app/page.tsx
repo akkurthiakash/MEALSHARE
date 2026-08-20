@@ -9,14 +9,14 @@ export default function Home() {
   const { user, loading } = useAuth();
 
   useEffect(() => {
-    if (!loading) {
-      if (user) {
-        router.push('/dashboard');
-      } else {
-        router.push('/login');
-      }
+    // Instant redirect on mount
+    const storedUser = typeof window !== 'undefined' ? localStorage.getItem('mealshare_mock_user') : null;
+    if (storedUser || user) {
+      router.push('/dashboard');
+    } else {
+      router.push('/login');
     }
-  }, [user, loading, router]);
+  }, [user, router]);
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center">

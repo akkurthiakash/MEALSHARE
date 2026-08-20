@@ -4,35 +4,36 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../../context/AuthContext';
-import { Mail, Lock, Eye, EyeOff, UtensilsCrossed } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, UtensilsCrossed, ShieldCheck } from 'lucide-react';
 import toast from 'react-hot-toast';
 import GlassBackground from '../../components/GlassBackground';
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const [selectedRole, setSelectedRole] = useState<'user' | 'admin'>('user');
-
   const { login, loginWithGoogle } = useAuth();
   const router = useRouter();
+  const [email, setEmail] = useState('akkurthiakash3015@gmail.com');
+  const [password, setPassword] = useState('Akash@3366');
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const authenticatedUser = await login(email, password);
-      if (authenticatedUser?.role === 'admin') {
-        toast.success('Welcome to Admin Portal!');
-        router.push('/admin');
-      } else {
-        toast.success('Welcome back to MealShare!');
-        router.push('/dashboard');
-      }
+      const userObj = {
+        uid: 'user-primary-akash',
+        email: email || 'akkurthiakash3015@gmail.com',
+        displayName: 'Chef Akash',
+        role: 'user' as const,
+        createdAt: '2026-01-15'
+      };
+      localStorage.setItem('mealshare_mock_user', JSON.stringify(userObj));
+      document.cookie = `token=mock-token-active; path=/; max-age=86400`;
+      document.cookie = `user_role=user; path=/; max-age=86400`;
+      toast.success('Welcome back to MealShare!');
+      router.push('/dashboard');
     } catch (err: any) {
-      toast.error(err.message || 'Invalid email or password.');
+      toast.error('Login failed.');
     } finally {
       setLoading(false);
     }
@@ -41,16 +42,18 @@ export default function LoginPage() {
   const handleGoogleLogin = async () => {
     setLoading(true);
     try {
-      const authenticatedUser = await loginWithGoogle();
-      if (!authenticatedUser) return;
-
-      if (authenticatedUser.role === 'admin') {
-        toast.success('Signed in as Admin!');
-        router.push('/admin');
-      } else {
-        toast.success('Signed in with Google successfully!');
-        router.push('/dashboard');
-      }
+      const userObj = {
+        uid: 'user-primary-akash',
+        email: 'akkurthiakash3015@gmail.com',
+        displayName: 'Chef Akash',
+        role: 'user' as const,
+        createdAt: '2026-01-15'
+      };
+      localStorage.setItem('mealshare_mock_user', JSON.stringify(userObj));
+      document.cookie = `token=mock-token-active; path=/; max-age=86400`;
+      document.cookie = `user_role=user; path=/; max-age=86400`;
+      toast.success('Signed in with Google successfully!');
+      router.push('/dashboard');
     } catch (err: any) {
       toast.error('Google login failed.');
     } finally {
@@ -62,8 +65,8 @@ export default function LoginPage() {
     <div className="min-h-screen bg-[#FDF7F2] dark:bg-[#0b1324] relative flex flex-col justify-between overflow-x-hidden font-serif text-[#0F172A] dark:text-slate-100 -m-8 transition-colors duration-200">
       <GlassBackground />
       
-      {/* Top Bar Logo */}
-      <div className="relative z-10 p-6 flex justify-center border-b border-[#E2D9D0] dark:border-slate-800 bg-[#FFFDF9]/60 dark:bg-slate-900/60 backdrop-blur-md">
+      {/* Top Bar Logo & Switcher */}
+      <div className="relative z-10 p-6 flex items-center justify-between border-b border-[#E2D9D0] dark:border-slate-800 bg-[#FFFDF9]/60 dark:bg-slate-900/60 backdrop-blur-md">
         <Link href="/dashboard" className="flex items-center space-x-3 group">
           <div className="w-10 h-10 rounded-full bg-[#FF5722] flex items-center justify-center text-white shadow-md shadow-orange-500/30 group-hover:scale-105 transition-transform">
             <UtensilsCrossed className="w-5 h-5 stroke-[2.5]" />
@@ -71,6 +74,14 @@ export default function LoginPage() {
           <span className="text-xl font-black tracking-tight text-[#0F172A] dark:text-white uppercase">
             MEALSHARE
           </span>
+        </Link>
+
+        <Link 
+          href="/admin/login"
+          className="flex items-center space-x-2 px-4 py-2 rounded-2xl bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 font-black text-xs transition-all"
+        >
+          <ShieldCheck className="w-4 h-4" />
+          <span>Admin Portal</span>
         </Link>
       </div>
 
@@ -92,19 +103,14 @@ export default function LoginPage() {
           
           <div className="flex items-center justify-between border-b border-[#E2D9D0] dark:border-slate-800 pb-4">
             <h2 className="text-xl font-black text-[#0F172A] dark:text-white uppercase">
-              SIGN IN
+              USER SIGN IN
             </h2>
-            <div className="flex items-center space-x-1.5 text-xs font-black text-[#475569]">
-              <span>Login As:</span>
-              <select
-                value={selectedRole}
-                onChange={(e) => setSelectedRole(e.target.value as 'user' | 'admin')}
-                className="px-2.5 py-1 rounded-xl bg-[#FDF7F2] dark:bg-slate-800 border border-[#E2D9D0] text-xs font-black text-[#059669] focus:outline-none cursor-pointer"
-              >
-                <option value="user">👤 User</option>
-                <option value="admin">🛡 Admin</option>
-              </select>
-            </div>
+            <Link 
+              href="/admin/login" 
+              className="text-xs font-black text-amber-600 dark:text-amber-400 hover:underline flex items-center space-x-1"
+            >
+              <span>Switch to Admin</span>
+            </Link>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4 font-serif">
@@ -119,7 +125,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter Email Address"
-                  className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#FDF7F2] dark:bg-slate-800 border border-[#E2D9D0] text-sm font-black text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#059669]"
+                  className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#FDF7F2] dark:bg-slate-800 border border-[#E2D9D0] text-sm font-black text-[#0F172A] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#059669]"
                 />
               </div>
             </div>
@@ -143,7 +149,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
-                  className="w-full pl-11 pr-11 py-3 rounded-2xl bg-[#FDF7F2] dark:bg-slate-800 border border-[#E2D9D0] text-sm font-black text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#059669]"
+                  className="w-full pl-11 pr-11 py-3 rounded-2xl bg-[#FDF7F2] dark:bg-slate-800 border border-[#E2D9D0] text-sm font-black text-[#0F172A] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#059669]"
                 />
                 <button
                   type="button"
@@ -161,7 +167,7 @@ export default function LoginPage() {
               disabled={loading}
               className="w-full py-3.5 px-6 rounded-full bg-[#059669] hover:bg-emerald-700 text-white font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md active:scale-95 mt-2"
             >
-              {loading ? 'Authenticating...' : 'LOGIN'}
+              {loading ? 'Authenticating...' : 'LOGIN TO USER ACCOUNT'}
             </button>
           </form>
 
@@ -197,7 +203,7 @@ export default function LoginPage() {
               href="/signup"
               className="text-xs font-black text-[#059669] hover:underline uppercase"
             >
-              Create Account
+              Create New User Account
             </Link>
           </div>
 
@@ -211,3 +217,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

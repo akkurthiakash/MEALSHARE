@@ -115,8 +115,8 @@ export const INITIAL_PANTRY_ITEMS: PantryItem[] = INITIAL_FOOD_CATALOG.map((cat,
   };
 });
 
-// Timeout wrapper helper (1.2s max before fallback to local cache)
-async function fetchWithTimeout<T>(promise: Promise<T>, timeoutMs: number = 1200): Promise<T> {
+// Fast Timeout wrapper helper (300ms max before instant local memory load on 4G)
+async function fetchWithTimeout<T>(promise: Promise<T>, timeoutMs: number = 300): Promise<T> {
   let timeoutId: NodeJS.Timeout;
   const timeoutPromise = new Promise<never>((_, reject) => {
     timeoutId = setTimeout(() => reject(new Error('Firestore network timeout')), timeoutMs);

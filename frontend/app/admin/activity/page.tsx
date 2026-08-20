@@ -14,7 +14,8 @@ interface AuditLog {
   timestamp: string;
 }
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL 
+  || (process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL.replace(/\/api\/?$/, '') : 'http://localhost:5000');
 
 export default function AdminActivityPage() {
   const [logs, setLogs] = useState<AuditLog[]>([]);
