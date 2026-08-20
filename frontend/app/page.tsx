@@ -9,14 +9,14 @@ export default function Home() {
   const { user, loading } = useAuth();
 
   useEffect(() => {
-    // Instant redirect on mount
+    // Instant direct location redirect on mount
     const storedUser = typeof window !== 'undefined' ? localStorage.getItem('mealshare_mock_user') : null;
     if (storedUser || user) {
-      router.push('/dashboard');
+      window.location.replace('/dashboard');
     } else {
-      router.push('/login');
+      window.location.replace('/login');
     }
-  }, [user, router]);
+  }, [user]);
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center">
