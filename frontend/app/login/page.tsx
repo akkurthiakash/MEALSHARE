@@ -31,10 +31,9 @@ export default function LoginPage() {
       document.cookie = `token=mock-token-active; path=/; max-age=86400`;
       document.cookie = `user_role=user; path=/; max-age=86400`;
       toast.success('Welcome back to MealShare!');
-      router.push('/dashboard');
+      window.location.href = '/dashboard';
     } catch (err: any) {
       toast.error('Login failed.');
-    } finally {
       setLoading(false);
     }
   };
@@ -53,10 +52,9 @@ export default function LoginPage() {
       document.cookie = `token=mock-token-active; path=/; max-age=86400`;
       document.cookie = `user_role=user; path=/; max-age=86400`;
       toast.success('Signed in with Google successfully!');
-      router.push('/dashboard');
+      window.location.href = '/dashboard';
     } catch (err: any) {
       toast.error('Google login failed.');
-    } finally {
       setLoading(false);
     }
   };

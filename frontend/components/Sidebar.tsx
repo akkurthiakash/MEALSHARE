@@ -26,6 +26,10 @@ export default function Sidebar() {
   const { user, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  React.useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   if (pathname === '/login' || pathname === '/signup' || pathname === '/forgot-password' || pathname === '/reset-password') {
     return null;
   }
