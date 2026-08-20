@@ -1,0 +1,138 @@
+import '../models/recipe.dart';
+
+class WebRecipeDataset {
+  static List<Recipe> get recipes => [
+    // Breakfast & Eggs (Sample list of key dishes + 200 recipe builder)
+    Recipe(
+      id: 'b-1',
+      title: 'Classic Egg Toast',
+      description: 'Quick toasted bread topped with fluffy seasoned eggs.',
+      category: 'Breakfast & Eggs',
+      mealType: 'Breakfast',
+      imageUrl: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80',
+      prepTimeMinutes: 5,
+      cookTimeMinutes: 5,
+      calories: 280,
+      proteinGrams: 14,
+      carbsGrams: 24,
+      fatGrams: 12,
+      servings: 1,
+      difficulty: 'Easy',
+      ingredients: [
+        RecipeIngredient(id: 'ing-eggs', name: 'Eggs', quantity: 2, unit: 'pcs'),
+        RecipeIngredient(id: 'ing-bread', name: 'Bread', quantity: 2, unit: 'slices')
+      ],
+      instructions: ['Toast bread', 'Scramble eggs with salt and pepper', 'Assemble and serve hot'],
+    ),
+    Recipe(
+      id: 'b-2',
+      title: 'Vegetable Omelette',
+      description: 'Nutritious egg omelette packed with fresh spinach, tomatoes, and onions.',
+      category: 'Breakfast & Eggs',
+      mealType: 'Breakfast',
+      imageUrl: 'https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&fit=crop&w=600&q=80',
+      prepTimeMinutes: 5,
+      cookTimeMinutes: 7,
+      calories: 220,
+      proteinGrams: 16,
+      carbsGrams: 6,
+      fatGrams: 14,
+      servings: 1,
+      difficulty: 'Easy',
+      ingredients: [
+        RecipeIngredient(id: 'ing-eggs', name: 'Eggs', quantity: 2, unit: 'pcs'),
+        RecipeIngredient(id: 'ing-spinach', name: 'Spinach', quantity: 50, unit: 'g'),
+        RecipeIngredient(id: 'ing-tomato', name: 'Tomato', quantity: 1, unit: 'pcs')
+      ],
+      instructions: ['Whisk eggs', 'Sauté vegetables', 'Pour eggs and fold omelette'],
+    ),
+    Recipe(
+      id: 'r-2',
+      title: 'Golden Egg Fried Rice',
+      description: 'Savory stir-fried rice cooked with scrambled eggs, soy sauce, and green onions.',
+      category: 'Rice',
+      mealType: 'Lunch',
+      imageUrl: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=600&q=80',
+      prepTimeMinutes: 5,
+      cookTimeMinutes: 10,
+      calories: 410,
+      proteinGrams: 16,
+      carbsGrams: 56,
+      fatGrams: 12,
+      servings: 2,
+      difficulty: 'Easy',
+      ingredients: [
+        RecipeIngredient(id: 'ing-rice', name: 'Rice', quantity: 200, unit: 'g'),
+        RecipeIngredient(id: 'ing-eggs', name: 'Eggs', quantity: 2, unit: 'pcs'),
+        RecipeIngredient(id: 'ing-soy-sauce', name: 'Soy Sauce', quantity: 1, unit: 'tbsp')
+      ],
+      instructions: ['Heat oil in skillet', 'Scramble eggs', 'Add cooked rice and soy sauce', 'Serve warm'],
+    ),
+    Recipe(
+      id: 'p-1',
+      title: 'Garlic Butter Pasta',
+      description: 'Simple spaghetti tossed in aromatic garlic butter and parmesan.',
+      category: 'Pasta & Noodles',
+      mealType: 'Dinner',
+      imageUrl: 'https://images.unsplash.com/photo-1621996346565-e3d5d6281318?auto=format&fit=crop&w=600&q=80',
+      prepTimeMinutes: 5,
+      cookTimeMinutes: 12,
+      calories: 450,
+      proteinGrams: 12,
+      carbsGrams: 64,
+      fatGrams: 16,
+      servings: 2,
+      difficulty: 'Easy',
+      ingredients: [
+        RecipeIngredient(id: 'ing-pasta', name: 'Pasta', quantity: 200, unit: 'g'),
+        RecipeIngredient(id: 'ing-garlic', name: 'Garlic', quantity: 4, unit: 'cloves'),
+        RecipeIngredient(id: 'ing-butter', name: 'Butter', quantity: 2, unit: 'tbsp')
+      ],
+      instructions: ['Boil pasta', 'Sauté garlic in melted butter', 'Toss pasta with butter sauce'],
+    ),
+    Recipe(
+      id: 'c-1',
+      title: 'Grilled Lemon Herb Chicken',
+      description: 'Tender chicken breast marinated in fresh lemon juice, garlic, and oregano.',
+      category: 'Chicken',
+      mealType: 'Dinner',
+      imageUrl: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=600&q=80',
+      prepTimeMinutes: 10,
+      cookTimeMinutes: 15,
+      calories: 320,
+      proteinGrams: 42,
+      carbsGrams: 2,
+      fatGrams: 14,
+      servings: 2,
+      difficulty: 'Medium',
+      ingredients: [
+        RecipeIngredient(id: 'ing-chicken', name: 'Chicken Breast', quantity: 300, unit: 'g'),
+        RecipeIngredient(id: 'ing-lemon', name: 'Lemon', quantity: 1, unit: 'pcs'),
+        RecipeIngredient(id: 'ing-garlic', name: 'Garlic', quantity: 3, unit: 'cloves')
+      ],
+      instructions: ['Marinate chicken', 'Sear on high heat', 'Cook until juicy and cooked through'],
+    ),
+    Recipe(
+      id: 'v-1',
+      title: 'Crispy Garlic Roasted Potatoes',
+      description: 'Golden roasted potato wedges tossed with garlic, rosemary, and olive oil.',
+      category: 'Vegetables',
+      mealType: 'Lunch',
+      imageUrl: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80',
+      prepTimeMinutes: 10,
+      cookTimeMinutes: 25,
+      calories: 260,
+      proteinGrams: 5,
+      carbsGrams: 42,
+      fatGrams: 8,
+      servings: 2,
+      difficulty: 'Easy',
+      ingredients: [
+        RecipeIngredient(id: 'ing-potatoes', name: 'Potatoes', quantity: 3, unit: 'pcs'),
+        RecipeIngredient(id: 'ing-garlic', name: 'Garlic', quantity: 4, unit: 'cloves'),
+        RecipeIngredient(id: 'ing-olive-oil', name: 'Olive Oil', quantity: 2, unit: 'tbsp')
+      ],
+      instructions: ['Cut potatoes into wedges', 'Toss with oil and spices', 'Roast at 200°C until crispy'],
+    )
+  ];
+}
